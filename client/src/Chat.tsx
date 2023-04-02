@@ -1,50 +1,45 @@
-import { useReducer } from 'react';
-import ChatList from './ChatList';
-import AddChat from './AddChat';
+import { useReducer } from "react";
+import ChatList from "./ChatList";
+import AddChat from "./AddChat";
 
 export default function Chat() {
-  const [chats, dispatch] = useReducer(
-    chatsReducer,
-    initialChats
-  );
+  const [chats, dispatch] = useReducer(chatsReducer, initialChats);
 
-  function handleAddChat(text: any) {
+  function handleAddChat(text: any, sender: 'user' | 'server') {
     dispatch({
-      type: 'added',
+      type: "added",
       id: nextId++,
-      text: text,
+      text,
+      sender,
     });
   }
 
   return (
     <>
-      <AddChat
-        onAddChat={handleAddChat}
-      />
-      <ChatList
-        chats={chats}
-      />
+      <AddChat onAddChat={handleAddChat} />
+      <ChatList chats={chats} />
     </>
   );
 }
 
 function chatsReducer(chats: any[], action: any) {
   switch (action.type) {
-    case 'added': {
-      return [...chats, {
-        id: action.id,
-        text: action.text,
-      }];
+    case "added": {
+      return [
+        ...chats,
+        {
+          id: action.id,
+          text: action.text,
+        },
+      ];
     }
     default: {
-      throw Error('Unknown action: ' + action.type);
+      throw Error("Unknown action: " + action.type);
     }
   }
 }
 
 let nextId = 3;
 const initialChats = [
-  { id: 0, text: 'Philosopher’s Path'},
-  { id: 1, text: 'Visit the temple'},
-  { id: 2, text: 'Drink matcha' }
+  { id: 0, text: "Welcome! My name is Plu", sender: 'server' },
 ];

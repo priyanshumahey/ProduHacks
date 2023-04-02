@@ -5,7 +5,7 @@ import './index.css'
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import WaitTimes from './Pages/WaitTimes'
 
-ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
+ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
     <BrowserRouter>
         <Routes>
@@ -14,4 +14,4 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
         </Routes>
     </BrowserRouter>
   </React.StrictMode>
-)
+);
