@@ -18,7 +18,6 @@ export default function Chat() {
 
   return (
     <>
-      <h1>Day off in Kyoto</h1>
       <AddChat
         onAddChat={handleAddChat}
       />
@@ -35,7 +34,6 @@ function chatsReducer(chats: any[], action: any) {
       return [...chats, {
         id: action.id,
         text: action.text,
-        done: false
       }];
     }
     default: {
@@ -46,7 +44,7 @@ function chatsReducer(chats: any[], action: any) {
 
 let nextId = 3;
 const initialChats = [
-  { id: 0, text: 'Philosopher’s Path', done: true },
-  { id: 1, text: 'Visit the temple', done: false },
-  { id: 2, text: 'Drink matcha', done: false }
+  { id: 0, text: 'Philosopher’s Path'},
+  { id: 1, text: 'Visit the temple'},
+  { id: 2, text: 'Drink matcha' }
 ];
