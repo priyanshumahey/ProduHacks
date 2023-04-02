@@ -1,0 +1,60 @@
+{
+  "info": {
+    "_postman_id": "c2386949-2b3f-40dd-993e-0a9f542321b6",
+    "name": "easyGPT",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "22683433"
+  },
+  "item": [
+    {
+      "name": "easyGPT POST",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"messages\": [\n        {\n            \"role\": \"user\",\n            \"content\": \"Just a friendly hello from a friend! Who are you?\"\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"What are the benefits of NLP APIs being released to the public?\"\n        },\n        {\n            \"role\": \"user\",\n            \"content\": \"What did I just ask you? How do you keep context?\"\n        }\n    ]\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/askgpt",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["askgpt"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "easyGPT POST with instructions",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"messages\": [\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"Cognitive Behavioural Assistant should act as a therapist and provide visually appealing responses. Use phrases commonly associated with therapists, such as 'How does that make you feel?' or 'Tell me more about that.' PERSONALIZE responses to the user's input and emotional state.  Ensure responses are grammatically correct and written in a professional yet conversational tone. Provide timely responses without significant delay.\"\r\n        },\r\n        {\r\n            \"role\": \"system\",\r\n            \"content\": \"Use emoticons in every answer and super often.\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"Just a friendly hello, I'm Francesco! Who are you?\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"I would like to have a better routine, can I get actionable steps to achieve my goal using CBT?\"\r\n        },\r\n        {\r\n            \"role\": \"user\",\r\n            \"content\": \"How can I cope with a traumatic event or past trauma?\"\r\n        }\r\n    ]\r\n}"
+        },
+        "url": {
+          "raw": "http://localhost:3000/askgpt",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["askgpt"]
+        },
+        "description": "This request lets you to test the rules (or instructions) quickly from Postman. If you are already using the addRules() method from the easygpt npm module, this will add onto that."
+      },
+      "response": []
+    }
+  ]
+}
