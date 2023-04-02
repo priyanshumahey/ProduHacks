@@ -4,6 +4,7 @@ import {
   useQuery,
 } from '@tanstack/react-query'
 import Chat from './Chat'
+import './index.css'
 
 const queryClient = new QueryClient()
 
