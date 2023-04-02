@@ -16,16 +16,3 @@ export default function App() {
     </QueryClientProvider>
   )
 }
-
-function Example(): JSX.Element {
-  const { isLoading, error, data } = useQuery({
-    queryKey: ['repoData'],
-    queryFn: () =>
-      fetch('https://api.github.com/repos/tannerlinsley/react-query').then(
-        (res) => res.json(),
-      ),
-  })
-
-  if (isLoading) return <>{'Loading...'}</>
-
-  if (error instanceof Error) return <>{'An error has occurred: ' + error.message}</>
