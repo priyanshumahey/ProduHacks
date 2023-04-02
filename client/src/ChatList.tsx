@@ -1,12 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import { Key, useState } from "react";
+import { If, Then } from "react-if";
 
 export default function ChatList({ chats }: { chats: any[] }) {
-  // if the last chat was made by the user:
-  //    1) trigger loading <li> item
-  //    2) start fetching response from server
-  //    3) populate the chats list context
-
   return (
     <ul>
       {chats.map((chat: { id: Key | null | undefined }) => (
@@ -14,9 +10,16 @@ export default function ChatList({ chats }: { chats: any[] }) {
           <ChatBox chat={chat} />
         </li>
       ))}
-      <li>
-        <ResponseBox message={"a"} />
-      </li>
+      {/* <li>
+        <ChatBox chat={}/>
+      </li> */}
+      {/* <If condition={lastChat.sender === 'user'}>
+        <Then>
+          <li>
+            <ResponseBox message={lastChat.message} />
+          </li>
+        </Then>
+      </If> */}
     </ul>
   );
 }
@@ -24,6 +27,26 @@ export default function ChatList({ chats }: { chats: any[] }) {
 function ChatBox({ chat }: { chat: any }) {
   return <label>{chat.text}</label>;
 }
+
+// function ResponseChatBox({ chats }: { chats: any[] }) {
+//   const lastChat = chats[chats.length - 1];
+//   console.log(lastChat)
+//   console.log(lastChat.sender);
+//   if (lastChat.sender === 'user') {
+//     const response = postData("http://localhost:3001/askgpt", { message: lastChat })
+//     console.log(Promise.resolve(response))
+//   }
+//   return (
+//       <If condition={lastChat.sender === 'user'}>
+//         <Then>
+//           <li>
+//             <ResponseBox message={lastChat.message} />
+//           </li>
+//         </Then>
+
+//       </If>
+//   )
+// }
 
 function ResponseBox({ message }: { message: string }): JSX.Element {
   const { isLoading, error, data } = useQuery({
@@ -37,6 +60,8 @@ function ResponseBox({ message }: { message: string }): JSX.Element {
 
   if (error instanceof Error)
     return <>{"An error has occurred: " + error.message}</>;
+
+  console.log(data);
 
   return <ChatBox chat={data.answer} />;
 }

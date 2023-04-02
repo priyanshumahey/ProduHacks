@@ -12,7 +12,7 @@ export default function AddChat({ onAddChat }: { onAddChat: any }) {
       <button
         onClick={() => {
           setText("");
-          onAddChat(text);
+          onAddChat(text, 'user');
         }}
       >
         Add

@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import EasyGpt from "easygpt";
+import cors from "cors";
 
 dotenv.config();
 
@@ -8,9 +9,10 @@ const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 
 const app = express();
 app.use(express.json());
+app.use(cors())
 
 app.post("/askgpt", async (req, res) => {
-  const message = req.body.message;
+  const message = req.body.message.text;
   // Create a new instance / context of ChatGPT
   const gpt = new EasyGpt();
 

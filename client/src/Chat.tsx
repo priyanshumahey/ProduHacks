@@ -5,11 +5,12 @@ import AddChat from "./AddChat";
 export default function Chat() {
   const [chats, dispatch] = useReducer(chatsReducer, initialChats);
 
-  function handleAddChat(text: any) {
+  function handleAddChat(text: any, sender: 'user' | 'server') {
     dispatch({
       type: "added",
       id: nextId++,
-      text: text,
+      text,
+      sender,
     });
   }
 
@@ -40,7 +41,5 @@ function chatsReducer(chats: any[], action: any) {
 
 let nextId = 3;
 const initialChats = [
-  { id: 0, text: "Philosopher’s Path" },
-  { id: 1, text: "Visit the temple" },
-  { id: 2, text: "Drink matcha" },
+  { id: 0, text: "Welcome! My name is Plu", sender: 'server' },
 ];
