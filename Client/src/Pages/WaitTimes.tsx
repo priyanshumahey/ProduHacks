@@ -68,12 +68,10 @@ function WaitTimes(): JSX.Element {
         <div className="overflow-auto h-48 hide-scroll-bar">
           <div className="text-xl border-blue-300 border-4 border-black rounded-2xl mb-2 p-1">General Physician</div>
           <div className="text-xl border-blue-300 border-4 border-black rounded-2xl mb-2 p-1">Walk-in Clinic</div>
-          <div className="text-xl border-blue-300 border-4 border-black rounded-2xl mb-2 p-1">General Physician</div>
-          <div className="text-xl border-blue-300 border-4 border-black rounded-2xl mb-2 p-1">Walk-in Clinic</div>
-          <div className="text-xl border-blue-300 border-4 border-black rounded-2xl mb-2 p-1">General Physician</div>
-          <div className="text-xl border-blue-300 border-4 border-black rounded-2xl mb-2 p-1">Walk-in Clinic</div>
-          <div className="text-xl border-blue-300 border-4 border-black rounded-2xl mb-2 p-1">General Physician</div>
-          <div className="text-xl border-blue-300 border-4 border-black rounded-2xl mb-2 p-1">Walk-in Clinic</div>
+          <div className="text-xl border-blue-300 border-4 border-black rounded-2xl mb-2 p-1">Dentist</div>
+          <div className="text-xl border-blue-300 border-4 border-black rounded-2xl mb-2 p-1">ER</div>
+          <div className="text-xl border-blue-300 border-4 border-black rounded-2xl mb-2 p-1">Dermatologist</div>
+          <div className="text-xl border-blue-300 border-4 border-black rounded-2xl mb-2 p-1">Pediatrician</div>
         </div>
         </div>
       </div>
