@@ -17,19 +17,9 @@ export default function ChatList({
 }
 
 function Chat({ chat }: {chat: any}) {
-  const chatContent = (
-      <>
-        {chat.text}
-      </>
-    );
-
   return (
     <label>
-      <input
-        type="checkbox"
-        checked={chat.done}
-      />
-      {chatContent}
+      {chat.text}
     </label>
   );
 }

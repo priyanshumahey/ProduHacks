@@ -11,7 +11,7 @@ export default function App() {
   return (
     <QueryClientProvider client={queryClient}>
       {/* <Example /> */}
-      <Chat/>~
+      <Chat/>
     </QueryClientProvider>
   )
 }
